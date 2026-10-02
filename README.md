@@ -3,7 +3,7 @@
 A modern ticket booking web application built with React.js.  
 Ticket Hub provides a simple and user-friendly interface for users to explore and book tickets through a clean web experience.
 
-## 🚀 Live Demo
+## Live Demo
 
 [View Ticket Hub Live]: 
 (https://ticket-hub-lake-nu.vercel.app)
@@ -20,13 +20,13 @@ This project was created as a practical application of frontend development conc
 
 ## Features
 
-- 🎟️ Ticket booking interface
-- 🔐 User login interface
-- 🧭 Simple and easy navigation
-- 📱 Responsive user interface
-- ⚡ Fast React-based frontend
-- 🎨 Clean and modern UI
-- 🌐 Deployed and accessible online
+- Ticket booking interface
+- User login interface
+- Simple and easy navigation
+- Responsive user interface
+- Fast React-based frontend
+- Clean and modern UI
+- Deployed and accessible online
 
 
 ## Technologies Used
@@ -39,5 +39,3 @@ This project was created as a practical application of frontend development conc
 - **Git & GitHub** – Version control
 - **Vercel** – Deployment
 
-
-## Project Structure
