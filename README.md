@@ -5,7 +5,7 @@ Ticket Hub provides a simple and user-friendly interface for users to explore an
 
 ## Live Demo
 
-[View Ticket Hub Live]:  (https://ticket-hub-lake-nu.vercel.app)
+[View Ticket Hub Live] (https://ticket-hub-lake-nu.vercel.app)
 
 
 ## About The Project
