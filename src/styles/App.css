@@ -1014,3 +1014,19 @@ textarea {
     border-radius: 16px;
   }
 }
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .nav-links a {
+    display: inline-block;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+}
