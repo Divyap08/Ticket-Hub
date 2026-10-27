@@ -127,24 +127,111 @@ const TicketBookingModal = ({ item, type, onClose, onBookTicket, user }) => {
         </div>
 
         {/* Quantity */}
-        <div className="form-group" style={{ marginBottom: '1rem' }}>
-          <label><strong>📊 Number of Tickets</strong></label>
-          <input 
-            type="number" 
-            min="1" max="25"
-            value={quantity}
-            onChange={(e) => {
-              const val = Math.max(1, Math.min(25, parseInt(e.target.value) || 1));
-              setQuantity(val);
-              setSelectedSeats([]); // Reset seats
-            }}
-            style={{ 
-              width: '100%', padding: '1rem', border: '2px solid #ddd', 
-              borderRadius: '8px', fontSize: '1.1rem', marginTop: '0.5rem'
-            }}
-          />
-          {errors.quantity && <div style={{ color: '#dc3545', fontSize: '0.9rem', marginTop: '0.25rem' }}>{errors.quantity}</div>}
-        </div>
+{/* Quantity */}
+<div className="form-group" style={{ marginBottom: '1rem' }}>
+  <label>
+    <strong>📊 Number of Tickets</strong>
+  </label>
+
+  <div
+    style={{
+      display: 'flex',
+      alignItems: 'center',
+      gap: '12px',
+      marginTop: '0.5rem'
+    }}
+  >
+    <button
+      type="button"
+      onClick={() => {
+        if (quantity > 1) {
+          setQuantity(quantity - 1);
+          setSelectedSeats([]);
+        }
+      }}
+      disabled={quantity <= 1}
+      aria-label="Decrease ticket quantity"
+      style={{
+        width: '48px',
+        height: '48px',
+        fontSize: '1.5rem',
+        border: '1px solid #ddd',
+        borderRadius: '8px',
+        background: quantity <= 1 ? '#eee' : '#667eea',
+        color: quantity <= 1 ? '#888' : 'white',
+        cursor: quantity <= 1 ? 'not-allowed' : 'pointer',
+        flexShrink: 0
+      }}
+    >
+      −
+    </button>
+
+    <input
+      type="number"
+      min="1"
+      max="25"
+      value={quantity}
+      onChange={(e) => {
+        const rawValue = e.target.value;
+
+        if (rawValue === '') return;
+
+        const val = Number(rawValue);
+
+        if (Number.isInteger(val) && val >= 1 && val <= 25) {
+          setQuantity(val);
+          setSelectedSeats([]);
+        }
+      }}
+      style={{
+        flex: 1,
+        minWidth: 0,
+        padding: '0.75rem',
+        border: '2px solid #ddd',
+        borderRadius: '8px',
+        fontSize: '1.1rem',
+        textAlign: 'center'
+      }}
+    />
+
+    <button
+      type="button"
+      onClick={() => {
+        if (quantity < 25) {
+          setQuantity(quantity + 1);
+          setSelectedSeats([]);
+        }
+      }}
+      disabled={quantity >= 25}
+      aria-label="Increase ticket quantity"
+      style={{
+        width: '48px',
+        height: '48px',
+        fontSize: '1.5rem',
+        border: 'none',
+        borderRadius: '8px',
+        background: quantity >= 25 ? '#eee' : '#667eea',
+        color: quantity >= 25 ? '#888' : 'white',
+        cursor: quantity >= 25 ? 'not-allowed' : 'pointer',
+        flexShrink: 0
+      }}
+    >
+      +
+    </button>
+  </div>
+
+  {errors.quantity && (
+    <div
+      style={{
+        color: '#dc3545',
+        fontSize: '0.9rem',
+        marginTop: '0.25rem'
+      }}
+    >
+      {errors.quantity}
+    </div>
+  )}
+</div>
 
         {/* Location */}
         <div className="form-group" style={{ marginBottom: '1rem' }}>
